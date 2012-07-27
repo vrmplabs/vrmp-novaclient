@@ -31,10 +31,10 @@ def ssh_puppet_install():
 
     # ssh public key write
     ssh.exec_command('if [ ! -d %s ]; then mkdir %s; fi' % (public_key_save_path, public_key_save_path))
-    ssh.exec_command('wget -P %s %s%s.publickey' % (public_key_save_path, public_key_url, key_name))
+    ssh.exec_command('wget -P %s %s%s.pub' % (public_key_save_path, public_key_url, key_name))
     ssh.exec_command('if [ ! -d /work/ ]; then mkdir /work/; fi')
     ssh.exec_command('if [ ! -d /work/.ssh/ ]; then mkdir /work/.ssh/; fi')
-    ssh.exec_command('while read line; do echo $line >> /work/.ssh/authorized_keys; done < %s%s.publickey' % (public_key_save_path, key_name))
+    ssh.exec_command('while read line; do echo $line >> /work/.ssh/authorized_keys; done < %s%s.pub' % (public_key_save_path, key_name))
     print 'Public key write completed successfully!'
 
     # ssh puppet install

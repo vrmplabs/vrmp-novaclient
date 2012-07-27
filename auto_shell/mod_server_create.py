@@ -36,7 +36,7 @@ def server_create():
     # write key file
     os.popen('if [ ! -d %s ]; then mkdir %s; fi' % (key_path, key_path))
     os.popen('echo "%s" > %s%s.pem' % (keypair.private_key, key_path, key_name))
-    os.popen('echo "%s" > %s%s.publickey' % (keypair.public_key, key_path, key_name))
+    os.popen('echo "%s" > %s%s.pub' % (keypair.public_key, key_path, key_name))
     os.popen('scp -r %s %s' % (key_path, key_save_url))
 
     # server create
