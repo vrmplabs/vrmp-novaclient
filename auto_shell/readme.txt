@@ -1,6 +1,6 @@
 1.将文件夹放在安装了openstack的机器的任意路径下
-2.执行命令：python auto_****.py，运行脚本
-3.主要功能：创建keypair，创建虚拟机，分配floating ip，虚拟机安装puppet，虚拟机work添加公钥
+2.执行命令：python auto_server_create.py，运行脚本
+3.主要功能：创建keypair，创建虚拟机，分配floating ip，虚拟机work添加公钥，虚拟机安装puppet
 4.配置文件说明：
 [nova_auth]
 os_username = nova登录用户名
@@ -21,8 +21,8 @@ floating_ip = 生成的floating ip(无需配置)
 
 [ssh_puppet_install]
 ssh_username = 虚拟机用户名
+public_key_save_path = 公钥存放路径
+public_key_url = 下载公钥的url(只到目录)
 repo_save_path = 保存repo的路径
 repo_1_url = 下载repo的url
 repo_2_url = 下载repo的url
-public_key_save_path = 公钥存放路径
-public_key_url = 下载公钥的url(只到目录)
